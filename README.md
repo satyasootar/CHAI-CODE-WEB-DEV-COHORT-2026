@@ -968,8 +968,8 @@ web-dev-cohort-2026/
 
 Track your progress through the cohort:
 
-- [ ] Fundamentals
-- [ ] Tools
+- [x] Fundamentals
+- [x] Tools
 - [ ] Building Blocks (HTML/CSS)
 - [ ] JavaScript Mastery
 - [ ] TypeScript Essentials
