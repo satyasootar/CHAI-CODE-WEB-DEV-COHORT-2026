@@ -1020,10 +1020,3 @@ Special thanks to the instructors and the entire ChaiCode team for creating this
 ---
 
 **Happy Coding! 🚀**
-
-*Last Updated: January 2026*
-[2]: https://courses.chaicode.com/learn?utm_source=chatgpt.com "Welcome to Cohort - Live Class"
-[3]: https://www.piyushgarg.dev/cohort?utm_source=chatgpt.com "Web Dev Cohort 1.0 is Live! 🎉"
-[4]: https://www.linkedin.com/posts/piyushgarg195_what-new-things-are-introduced-in-the-web-activity-7409123472204816387-tBut?utm_source=chatgpt.com "What new things are introduced in the Web Dev Cohort ..."
-[5]: https://chaicode.com/?utm_source=chatgpt.com "ChaiCode - Home for Programmers"
-
