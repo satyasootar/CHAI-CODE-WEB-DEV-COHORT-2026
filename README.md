@@ -1,5 +1,6 @@
 # 🚀 Web Dev Cohort 2026 - Learning Journey
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cbe836b7-3231-467d-9d53-76d7dcf1e2da" />
+
 > A comprehensive full-stack web development program covering modern web technologies, backend engineering, cloud deployment, and AI integrations.
 
 ---
@@ -1025,3 +1026,4 @@ Special thanks to the instructors and the entire ChaiCode team for creating this
 [3]: https://www.piyushgarg.dev/cohort?utm_source=chatgpt.com "Web Dev Cohort 1.0 is Live! 🎉"
 [4]: https://www.linkedin.com/posts/piyushgarg195_what-new-things-are-introduced-in-the-web-activity-7409123472204816387-tBut?utm_source=chatgpt.com "What new things are introduced in the Web Dev Cohort ..."
 [5]: https://chaicode.com/?utm_source=chatgpt.com "ChaiCode - Home for Programmers"
+
