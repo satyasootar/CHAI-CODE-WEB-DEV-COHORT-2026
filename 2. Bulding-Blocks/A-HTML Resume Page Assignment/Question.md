@@ -3,7 +3,6 @@
 **Course:** Web Dev Cohort 2026  
 **Domain:** Web Development  
 
----
 
 ## Timeline
 
@@ -12,7 +11,7 @@
 - **Evaluation Begins:** 30 Jan 2026, 9:00 pm  
 - **Evaluation Ends:** 31 Jan 2026, 8:00 pm  
 
----
+
 
 ## Instructions
 
@@ -44,7 +43,7 @@ You can submit your work in any of the following forms:
 > Focus on proper HTML tags such as headings, paragraphs, lists, tables, and sections.  
 > Try to match the overall layout as closely as possible.
 
----
+
 
 ## Submission Instructions
 
@@ -55,7 +54,7 @@ You can submit your work in any of the following forms:
   - Screenshots (recommended)  
 - The GitHub repository **must be public**
 
----
+
 
 ## Evaluation Parameters
 
@@ -67,6 +66,6 @@ Your assignment will be evaluated based on:
 - Proper use of HTML semantics  
 - Overall user experience and design quality  
 
----
+
 
 ### 📌 Max Marks: **100**
