@@ -1,3 +1,4 @@
 Live link: https://satyasootarhtmlresume.netlify.app
 
-<img width="750" alt="127 0 0 1_5500_2 20Resume20Assignment_index html" src="https://github.com/user-attachments/assets/0d5bcbd0-8bcb-49bc-a9a8-e0a0ab6459f0" />
+
+<img  alt="satyasootarhtmlresume netlify app_" src="https://github.com/user-attachments/assets/978e7716-e729-4868-acaa-5192a9b3088f" />
