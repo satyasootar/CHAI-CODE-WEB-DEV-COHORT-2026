@@ -24,7 +24,10 @@
 
 header {
     background-image: url(./assets//bg-light.svg);
-    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
 }
 /*-----------Navbar Stars----- */
 header nav {
@@ -177,11 +180,66 @@ header nav {
     width: 100%;
     text-align: center;
 }
-
-
 /*------------- Main Heading ends-------------*/
 
+/*------------- Email input + CTA button Starts-------------*/
+.hero form {
+    margin-top: 2rem;
+    padding: 0.25rem;
+    width: 100%;    
+    max-width: 22.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;  
+    border-radius: 9999px; 
+    border: 1px solid var(--border-soft, #e5e7eb3b);
+    background-color: var(--border-soft, rgba(237, 237, 237, 0.188));
+    backdrop-filter: blur(12px);
 
+}
 
+form input {
+    background-color: transparent;
+    padding: 0px 0.5rem;
+    outline: none;
+    border: none;
+    color: var(--bg-color);
+    width: 100%;
+}
+
+form input::placeholder {
+    color: #d6d6d6;
+}
+
+.email-cta-btn {
+  justify-content: center;
+  gap: 0.375rem;            
+  height: fit-content;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-black);
+  padding: 4.5px 12px;         
+  border-radius: 9999px;    
+  border: 1px solid var(--bg-color);
+  background-color: var(--bg-color);
+}
+
+/*------------- Email input + CTA button ends-------------*/
+
+/*---------Large background illustration--------------*/
+
+.hero-background-illustration {
+
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 100px;
+    background-size: cover;
+    background-position: center
+}
+.hero-background-illustration img {
+    border-radius: 10px;
+}
 
 /* ----------Hero section ends----------- */
