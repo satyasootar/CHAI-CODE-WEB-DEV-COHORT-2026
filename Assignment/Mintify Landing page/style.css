@@ -10,6 +10,8 @@
     --color-blue:#3a88c8;
     --color-lightpink:#bca794;
     --color-black:#000;
+
+    --text-white:#f4f5f4;
 }
 
 *{
@@ -19,10 +21,12 @@
     font-family: "Inter", sans-serif;
 }
 
+
 header {
     background-image: url(./assets//bg-light.svg);
     height: 100vh;
 }
+/*-----------Navbar Stars----- */
 header nav {
     display: flex;
     justify-content: center;
@@ -64,7 +68,7 @@ header nav {
 .link li a{
     font-size: 15px;
     text-decoration: none;
-    color:var(--bg-color);
+    color:var(--text-white);
     font-weight: 500;
     height: 2rem;
     display: flex;
@@ -89,7 +93,7 @@ header nav {
   border-radius: 9999px; 
   border: 1px solid transparent;
   background-color: rgba(244, 244, 244, 0.104);
-  color: var(--bg-color);
+  color: var(--text-white);
 }
 
 .start-for-free-btn {
@@ -104,3 +108,80 @@ header nav {
   background-color: var(--bg-color);
   color: var(--color-black);
 }
+
+/* -------Navbar ends--------- */
+
+/* ------------Hero section starts--------- */
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+/*-----badge starts-----*/
+.badge {
+    border-radius: 50px;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: #1818182e;
+    width: fit-content;
+    color:var(--text-white);
+}
+
+.badge span {
+    padding: 0.125rem 0.5rem;
+    background-color: #0c8c5e;
+    border-radius: 50px;
+    margin: 1px;
+    font-size: 12px;
+}
+.badge p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.badge svg {
+    width: 1rem;
+}
+
+/*-----badge ends-----*/
+
+/*------------- Main Heading starts-------------*/
+.hero h1 {
+  width: 100%;
+  max-width: 43rem;
+  font-size: 60px;
+  text-align: center;
+  color: var(--text-white);
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-top: 50px;
+}
+/*------------- Main Heading ends-------------*/
+
+/*------------- Sub Heading starts-------------*/
+
+.subheading {
+    color: var(--bg-color);
+    margin-top: 24px;
+    font-size: 18px;
+    text-wrap: balance;
+    line-height: 1.5rem;
+    max-width: 29.5rem;
+    margin-inline: auto;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*------------- Main Heading ends-------------*/
+
+
+
+
+/* ----------Hero section ends----------- */
