@@ -23,10 +23,17 @@
 
 
 header {
-    background-image: url(./assets//bg-light.svg);
+    background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.221)
+    ),
+    url(./assets//bg-light.svg);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: 110% auto;   
+    background-repeat: no-repeat;
+    background-position: center -85px; 
 
 }
 /*-----------Navbar Stars----- */
@@ -241,5 +248,29 @@ form input::placeholder {
 .hero-background-illustration img {
     border-radius: 10px;
 }
-
 /* ----------Hero section ends----------- */
+
+/* Trusted By / Logos */
+
+.compay-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+    margin-bottom: 500px;
+}
+
+.company {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 10px;
+}
+
+.company-container {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 20px 10px;
+    color: var(--color-black);
+}
+
