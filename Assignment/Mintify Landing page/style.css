@@ -21,6 +21,9 @@
     font-family: "Inter", sans-serif;
 }
 
+main {
+    background-color: var(--bg-color);
+}
 
 header {
     background-image:
@@ -327,6 +330,7 @@ form input::placeholder {
     font-weight: 400;
     font-size: 14px;
     color: #0c8c5e;
+    text-transform: uppercase;
 }
 /* -------Intelligent Assistant / UI Preview starts------- */
 
@@ -356,7 +360,72 @@ form input::placeholder {
 }
 /* -------Intelligent Assistant / UI Preview ends------- */
 /*-----------Feature section ends----------------*/
-
-
 /* ---------------Enterprise Features Section starts------------- */
+
+.enterprise-feature {
+    min-width: 500px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+}
+
+.enterprise-header {
+    display: flex;
+    gap: 12rem;
+    padding-bottom: 48px;
+}
+
+.enterprise-feature-text-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap:1rem;
+    flex-direction: column;
+}
+
+.enterprise-feature-text-wrapper h1{
+font-size: 40px;
+}
+
+.enterprise-feature-text-wrapper p {
+    font-size: 16px;
+}
+
+.explore-for-enterprise-btn {
+  gap: 6px;
+  height: fit-content;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 7px 24px;
+  border-radius: 9999px; 
+  border: 1px solid transparent;
+  background-color: var(--color-black);
+  color: var(--bg-color);
+}
+
+.enterprise-feature-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+.enterprise-feature-card h2 {
+    margin: 32px 0px 16px 0px;
+}
+.enterprise-feature-card p {
+    font-size: 16px;
+    color: #08090acc;
+}
+
+
+
+.enterprise-feature-banner {
+    background-image: url();
+}
+/*---------------Enterprise Features Section Ends------------- */
 
