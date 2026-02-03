@@ -281,7 +281,7 @@ form input::placeholder {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin: 200px 0px;
 }
 .feature p {
     text-align: center;
@@ -310,6 +310,7 @@ form input::placeholder {
     border: 1px solid rgb(232, 232, 232);
     border-radius: 30px;
     padding: 24px;
+    margin-bottom: 24px;
 }
 .feature-card-layout p, h3, h2 {
     text-align: start;
@@ -317,16 +318,45 @@ form input::placeholder {
     padding: 0px;
 }
 
-
-
-.feature-card-layout h2{
+.feature-heading-main {
     font-weight: 500;
 
 }
-.feature-card-layout h3 {
+.green-small-heading {
     font-family: "Geist Mono", monospace;
     font-weight: 400;
     font-size: 14px;
     color: #0c8c5e;
 }
+/* -------Intelligent Assistant / UI Preview starts------- */
+
+.assistant-card {
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 30px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.assistant-card .text-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.assistant-card .text-wrapper p {
+    padding: 0px;
+}
+
+.assistant-card img {
+    margin-top: 100px;
+}
+/* -------Intelligent Assistant / UI Preview ends------- */
 /*-----------Feature section ends----------------*/
+
+
+/* ---------------Enterprise Features Section starts------------- */
+
