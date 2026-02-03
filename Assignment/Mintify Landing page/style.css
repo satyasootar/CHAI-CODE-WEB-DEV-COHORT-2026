@@ -169,7 +169,6 @@ header nav {
   color: var(--text-white);
   font-weight: 600;
   line-height: 1.15;
-  text-wrap: balance;
   margin-top: 50px;
 }
 /*------------- Main Heading ends-------------*/
@@ -250,14 +249,13 @@ form input::placeholder {
 }
 /* ----------Hero section ends----------- */
 
-/* Trusted By / Logos */
+/*--------- Trusted By / Logos starts---- */
 
 .compay-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 100px 0px;
-    margin-bottom: 500px;
+    margin: 90px 0px;
 }
 
 .company {
@@ -274,3 +272,61 @@ form input::placeholder {
     color: var(--color-black);
 }
 
+/*--------- Trusted By / Logos starts---- */
+
+/*-----------Feature section starts----------------*/
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+.feature p {
+    text-align: center;
+    padding-top:20px ;
+    font-size: 16px;
+    font-weight: 400px;
+    line-height: 1.5;
+    color: #585858;
+}
+.feature h1 {
+    font-size: 40px;
+}
+.feature-card {
+    margin-top: 50px;
+    display: flex;
+    gap: 24px;
+    min-width: 500px;
+}
+.feature-card-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    width: fit-content;
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 30px;
+    padding: 24px;
+}
+.feature-card-layout p, h3, h2 {
+    text-align: start;
+    text-wrap: balance;
+    padding: 0px;
+}
+
+
+
+.feature-card-layout h2{
+    font-weight: 500;
+
+}
+.feature-card-layout h3 {
+    font-family: "Geist Mono", monospace;
+    font-weight: 400;
+    font-size: 14px;
+    color: #0c8c5e;
+}
+/*-----------Feature section ends----------------*/
