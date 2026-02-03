@@ -432,10 +432,10 @@ font-size: 40px;
     height: 520px ;
     width: 1028px;
     background-repeat: no-repeat;
-    background-size: 100% auto;   
+      background-size: 105% auto;    
     background-repeat: no-repeat;
     border-radius: 30px;
-    padding: 50px;
+    padding: 4rem;
 }
 
 .enterprise-feature-banner:hover {
@@ -445,7 +445,7 @@ font-size: 40px;
       rgba(0, 0, 0, 0.4)
     ),
      url(./assets//enterprise-feature-banner.png);
-    transition: 0.9s ease;
+      
 }
 
 .enterprise-small-heading {
@@ -465,6 +465,37 @@ font-size: 40px;
 .enterprise-feature-banner p span svg{
     width: 10px;
     rotate: -90deg;
+}
+.feature-banner-text{
+    margin-top: 8rem;
+    display: flex;
+    gap:2.5rem
+}
+
+.feature-banner-text .card h1{
+    color:var(--bg-color);
+    font-weight: 400;
+    font-size: 40px;
+}
+.feature-banner-text .card p{
+    color:#a8a8a8;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+.enterprise-feature-company {
+    display: flex;
+    min-width: 1028px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 200px;
+    padding: 0px 24px;
+}
+
+.enterprise-feature-company .company-container img {
+      filter: brightness(0) saturate(100%) invert(65%);
 }
 /*---------------Enterprise Features Section Ends------------- */
 
