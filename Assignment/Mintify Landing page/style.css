@@ -577,7 +577,7 @@ h2 {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 300px;
+  margin-bottom: 200px;
 }
 
 .cta h1 {
@@ -650,3 +650,30 @@ h2 {
   margin-top: 100px;
 }
 /* ---------Final Call-To-Action ends--------- */
+
+
+/* -----------footer starts starts----------- */
+
+footer {
+    margin-bottom: 500px;
+    width: full;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-head {
+    min-width: 1028px;
+    display: flex;
+    justify-content: space-between;
+    padding: 64px 32px 24px;
+    border: 1px solid rgb(203, 203, 203);
+}
+
+.social-logo {
+    color: #55555585;
+    display: flex;
+    gap: 1rem;
+}
