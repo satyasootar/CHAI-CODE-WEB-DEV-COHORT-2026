@@ -21,9 +21,6 @@
     font-family: "Inter", sans-serif;
 }
 
-main {
-    background-color: var(--bg-color);
-}
 
 header {
     background-image:
@@ -37,7 +34,6 @@ header {
     background-size: 110% auto;   
     background-repeat: no-repeat;
     background-position: center -85px; 
-
 }
 /*-----------Navbar Stars----- */
 header nav {
@@ -412,6 +408,7 @@ font-size: 40px;
     justify-content: center;
     align-items: center;
     gap: 6rem;
+    margin-bottom: 50px;
 }
 
 .enterprise-feature-card h2 {
@@ -425,7 +422,50 @@ font-size: 40px;
 
 
 .enterprise-feature-banner {
-    background-image: url();
+    background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+     url(./assets//enterprise-feature-banner.png);
+    height: 520px ;
+    width: 1028px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;   
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.enterprise-feature-banner:hover {
+    background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+     url(./assets//enterprise-feature-banner.png);
+    transition: 0.9s ease;
+}
+
+.enterprise-small-heading {
+    color: white;
+    font-weight: 600;
+}
+.enterprise-feature-banner h2 {
+    color: white;
+    padding: 20px 0px 30px 0px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.enterprise-feature-banner p {
+    color: white;
+    font-weight: 500;
+}
+.enterprise-feature-banner p span svg{
+    width: 10px;
+    rotate: -90deg;
 }
 /*---------------Enterprise Features Section Ends------------- */
+
 
