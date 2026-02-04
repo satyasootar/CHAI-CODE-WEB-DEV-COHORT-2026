@@ -489,6 +489,11 @@ h2 {
 .enterprise-feature-company .company-container img {
   filter: brightness(0) saturate(100%) invert(65%);
 }
+.enterprise-feature-company .company-container img:hover {
+    filter:none;
+    cursor: pointer;
+}
+
 /*---------------Enterprise Features Section Ends------------- */
 
 /*-----------Case Studies / Customer Stories Starts--------------*/
