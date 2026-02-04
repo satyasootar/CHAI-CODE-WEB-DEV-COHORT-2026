@@ -940,37 +940,13 @@ The Web Dev Cohort 2026 is an intensive, hands-on program designed to transform 
 
 ---
 
-## 📂 Repository Structure
-
-```
-web-dev-cohort-2026/
-├── 01-fundamentals/
-│   ├── notes/
-│   ├── projects/
-│   └── exercises/
-├── 02-tools/
-├── 03-building-blocks/
-├── 04-javascript/
-├── 05-typescript/
-├── 06-backend/
-├── 07-react/
-├── 08-nextjs/
-├── 09-ai-integration/
-├── 10-devops/
-├── 11-production-projects/
-├── resources/
-└── README.md
-```
-
----
-
 ## ✅ Progress Tracking
 
 Track your progress through the cohort:
 
 - [x] Fundamentals
 - [x] Tools
-- [ ] Building Blocks (HTML/CSS)
+- [x] Building Blocks (HTML/CSS)
 - [ ] JavaScript Mastery
 - [ ] TypeScript Essentials
 - [ ] Backend Engineering
@@ -1020,3 +996,4 @@ Special thanks to the instructors and the entire ChaiCode team for creating this
 ---
 
 **Happy Coding! 🚀**
+
