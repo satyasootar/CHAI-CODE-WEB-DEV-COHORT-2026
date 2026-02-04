@@ -41,7 +41,12 @@ header nav {
   width: 100%;
   padding: 1rem;
   gap: 3rem;
+  backdrop-filter: blur(12px);
+  position: sticky;
+  z-index: 10px;
+  top:0px;
 }
+
 .nav-logo-link-wrapper {
   display: flex;
   gap: 12rem;
