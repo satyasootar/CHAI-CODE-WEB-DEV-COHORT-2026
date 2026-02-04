@@ -1,6 +1,7 @@
 :root {
     --bg-color:#14120B;
     --color-white: #EDECEC;
+    --color-box: #1B1913;
 }
 
 @font-face {
@@ -11,6 +12,15 @@
   font-display: swap;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container {
+    max-width: 1300px;
+    margin-bottom: 1000px;
+}
 *{
     margin: 0;
     padding: 0;
@@ -18,15 +28,13 @@
     font-family: "wolf2", system-ui, sans-serif;
 }
 
-header {
-    margin: 0 60px;
-}
 
-header div{
+header .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 52px;
+
 }
 
 header div img {
@@ -76,16 +84,27 @@ header div nav ul {
 
 .section{
     padding: 112px 20px 67.2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .container {
     margin: 0 42.4px;
+    max-width: 1300px;
 }
 
 .container h1{
     margin-bottom: 22.4px;
     color: var(--color-white);
     font-size: 26px;
+}
+
+.container p{
+    color: var(--color-white);
+    text-align: center;
+    font-size: 14px;
 }
 
 .container-btn {
@@ -103,10 +122,40 @@ header div nav ul {
     color: #14120B;
 }
 
-
 .icon {
   font-size: 18px;
   color: rgb(0, 0, 0);
   line-height: 1;
   background-color: transparent;
+}
+
+.section img {
+    width: 1300px;
+    padding-top: 62px;
+    border-radius: 10px;
+}
+
+.box {
+    text-align: center;
+    color: var(--color-white);
+    max-height: 100px;
+    background-color: var(--color-box);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7.5px;
+}
+
+.box img {
+    height: 40px;
+    background: transparent;
+}
+
+.box-grid {
+  display: grid;
+  grid-auto-flow: column;    
+  gap: 8px;              
+  align-items: center;
+  margin-top: 20px;
 }
