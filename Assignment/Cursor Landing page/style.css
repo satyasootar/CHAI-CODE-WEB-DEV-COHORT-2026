@@ -1,0 +1,112 @@
+:root {
+    --bg-color:#14120B;
+    --color-white: #EDECEC;
+}
+
+@font-face {
+  font-family: "wolf2";
+  src: url("./assets/fonts/CursorGothic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    background-color:var(--bg-color) ;
+    font-family: "wolf2", system-ui, sans-serif;
+}
+
+header {
+    margin: 0 60px;
+}
+
+header div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+}
+
+header div img {
+    color: #ffffff;
+}
+
+header div nav ul li {
+    color: var(--color-white);
+    text-decoration: none;
+    list-style: none;
+    font-size: 14px;
+    color: var(--color-white);
+    padding: 5.6px 15px;
+}
+
+header div nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.signin-btn {
+    color: var(--color-white);
+    background: var(--bg-color);
+    font-size: 14px;
+    padding: 5.6px 10.5px 5.88px;
+    border-radius: 50px;
+    border: 1px solid #4d4d4d;
+}
+
+.download-btn {
+    color: var(--bg-color);
+    background: var(--color-white);
+    font-size: 14px;
+    padding: 5.6px 10.5px 5.88px;
+    border-radius: 50px;
+    border: 1px solid #4d4d4d;
+}
+
+.section{
+    padding: 112px 20px 67.2px;
+}
+
+.container {
+    margin: 0 42.4px;
+}
+
+.container h1{
+    margin-bottom: 22.4px;
+    color: var(--color-white);
+    font-size: 26px;
+}
+
+.container-btn {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-white);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12.48px 21.6px 12.8px;
+    border-radius: 3.40282e38px;
+    justify-content: center;
+    align-items: baseline;
+    line-height: 1;
+    display: inline-flex;
+    gap: 3px;
+    color: #14120B;
+}
+
+
+.icon {
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  line-height: 1;
+  background-color: transparent;
+}
