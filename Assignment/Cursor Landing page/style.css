@@ -8,9 +8,8 @@
 
 @font-face {
     font-family: CursorGothic;
-    src: url('./assets/fonts/CursorGothic-Regular.woff2') format('woff2');
+    src: url('./assets/fonts/CursorGothic-Regular2.woff2') format('woff2');
     font-display: swap;
-    font-weight: 400;
     font-style: normal;
 }
 
@@ -18,25 +17,9 @@
     font-family: CursorGothic;
     src: url('./assets/fonts/CursorGothic-Italic.woff2') format('woff2');
     font-display: swap;
-    font-weight: 400;
     font-style: italic;
 }
 
-@font-face {
-    font-family: CursorGothic;
-    src: url('./assets/fonts/CursorGothic-Bold.woff2') format('woff2');
-    font-display: swap;
-    font-weight: 700;
-    font-style: bold;
-}
-
-@font-face {
-    font-family: CursorGothic;
-    src: url('./assets/fonts/CursorGothic-BoldItalic.woff2') format('woff2');
-    font-display: swap;
-    font-weight: 700;
-    font-style: italic;
-}
 
 body {
     display: flex;
@@ -131,6 +114,12 @@ header div nav ul {
     margin-bottom: 22.4px;
     color: var(--color-white);
     font-size: 26px;
+} 
+
+.container h2{
+    margin-bottom: 22.4px;
+    color: var(--color-white);
+    font-size: 26px;
 }
 
 .container p{
@@ -187,7 +176,8 @@ header div nav ul {
 
 .box-grid {
   display: grid;
-  grid-auto-flow: column;    
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
   gap: 8px;              
   align-items: center;
   margin-top: 20px;
@@ -277,4 +267,43 @@ header div nav ul {
 .testimonial-person-details div .role {
     color: var(--color-text-secondary);
 
+}
+
+
+
+.frontier {
+    margin-top: 200px;
+}
+
+.frontier-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 1fr;
+    gap:calc(calc(10rem/16)*1);
+}
+
+.frontier-card {
+    width: fit-content;
+    padding: 15.9px 17.5px 17.5px;
+    background-color: var(--color-box);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.frontier-card div {
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+    line-height: 1.6;
+}
+.frontier-card p{
+    color: var(--color-white);
+    margin-bottom: 4px;
+}
+
+.frontier-card a{
+    color: var(--color-text-links);
+    text-decoration: none;
+    margin: 15px 0px 17px 0px;
 }
