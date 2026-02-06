@@ -26,10 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color:var(--bg-color) ;
-}
-.main-container {
-    max-width: 1300px;
-
+    overflow-x: hidden;
 }
 *{
     margin: 0;
@@ -37,7 +34,10 @@ body {
     font-family: "CursorGothic", system-ui, sans-serif;
     font-style: normal;
 }
-
+.main-container {
+    max-width: 1300px;
+ 
+}
 header .navbar{
     display: flex;
     justify-content: space-between;
@@ -85,6 +85,10 @@ header div nav ul {
     padding: 5.6px 10.5px 5.88px;
     border-radius: 50px;
     border: 1px solid #4d4d4d;
+}
+
+.hover {
+    cursor: pointer;
 }
 
 .download-btn {
@@ -216,11 +220,11 @@ header div nav ul {
     color: var(--color-text-secondary);
 }
 
-.big-box-links {
+.red-links {
     color: var(--color-text-links);
     font-size: 16px;
     text-decoration: none;
-    margin-top: 20px;
+    margin: 20px 0px;
 }
 
 .testimonial-container h1{
@@ -302,11 +306,7 @@ header div nav ul {
     margin-bottom: 4px;
 }
 
-.frontier-card a{
-    color: var(--color-text-links);
-    text-decoration: none;
-    margin: 15px 0px 17px 0px;
-}
+
 
 
 .changelog-wrapper {
@@ -343,17 +343,18 @@ header div nav ul {
 
 }
 
-.changelog a {
-    color: var(--color-text-links);
-    text-decoration: none;
-}
-
-
 .recent-highlight{
     background-color: var(--color-box);
     padding: 10px 0px;
+    width: 100vw; /* Full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    justify-content: center;
 }
-
 .highlight-grid {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
@@ -425,14 +426,27 @@ header div nav ul {
 }
 
 footer {
-    width: 100%;
     background-color: var(--color-box);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .footer-links-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    min-width: 1300px;
+    margin-top: 50px;
 }
+
+
 
 .footer-links ul li a{
     text-decoration: none;
@@ -443,7 +457,7 @@ footer {
 .footer-links ul li{
     text-decoration: none;
     list-style: none;
-    padding: 2.6px;
+    padding: 4px;
 }
 
 .footer-links ul li:first-of-type a{
@@ -454,6 +468,8 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 40px 0px;
+    width: 100%;
+    margin-top: 100px;
 }
 
 .end p {
@@ -498,7 +514,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
     background-color: #26241E;
     color: var(--color-white);
     padding: 5px 15px;
