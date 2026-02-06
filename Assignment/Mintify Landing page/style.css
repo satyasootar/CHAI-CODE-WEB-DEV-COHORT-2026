@@ -123,6 +123,10 @@ header nav {
   color: var(--color-black);
 }
 
+.start-for-free-btn:hover {
+  background-color: #c7c7c7;
+}
+
 /* -------Navbar ends--------- */
 
 /* ------------Hero section starts--------- */
