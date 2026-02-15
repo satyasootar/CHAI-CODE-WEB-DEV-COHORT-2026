@@ -34,8 +34,8 @@ const getBaseDir = () => {
 const BASE_DIR = getBaseDir();
 const ASSIGNMENTS_DIR = path.join(BASE_DIR, 'assignment');
 const LABS_DIR = path.join(BASE_DIR, 'js-labs');
-const BLOGS_DIR = path.join(BASE_DIR, 'blogs');
-const CLASS_DIR = path.join(BASE_DIR, 'class');
+const BLOGS_DIR = path.join(BASE_DIR, 'Blogs');
+const CLASS_DIR = path.join(BASE_DIR, 'Class');
 
 export interface Assignment {
   id: string;
