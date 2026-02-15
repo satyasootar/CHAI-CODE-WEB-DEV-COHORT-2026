@@ -40,6 +40,7 @@ const CLASS_DIR = path.join(BASE_DIR, 'Class');
 export interface Assignment {
   id: string;
   title: string;
+  description?: string;
   liveLink?: string;
   screenshot?: string;
   techStack?: string[];
@@ -104,11 +105,24 @@ export async function getAssignments(): Promise<Assignment[]> {
       const imageMatch = readmeContent.match(/src="([^"]+)"/);
       const screenshot = imageMatch ? imageMatch[1] : undefined;
 
+      // Extract Description: Look for the first paragraph that isn't a heading or an image
+      let description = "A full-stack assignment demonstrating core web development concepts.";
+      const lines = readmeContent.split('\n');
+      for (const line of lines) {
+          const trimmed = line.trim();
+          if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('!') && !trimmed.startsWith('<img') && !trimmed.startsWith('[') && trimmed.length > 20) {
+              description = trimmed.slice(0, 150) + (trimmed.length > 150 ? '...' : '');
+              break;
+          }
+      }
+
       assignments.push({
         id: folder,
         title: folder.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        description,
         liveLink,
         screenshot,
+        techStack: [] // Placeholder for now
       });
     }
 

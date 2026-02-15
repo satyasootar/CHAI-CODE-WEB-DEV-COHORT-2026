@@ -10,7 +10,7 @@ export default async function ClassNotesPage() {
   const notes = await getClassNotes();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-32">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Class Notes</h1>
         <p className="text-muted-foreground">

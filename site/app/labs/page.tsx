@@ -9,7 +9,7 @@ export default async function LabsPage() {
   const labs = await getLabs();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pt-32">
       <div className="flex flex-col space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">JavaScript Labs</h1>
         <p className="text-muted-foreground">
