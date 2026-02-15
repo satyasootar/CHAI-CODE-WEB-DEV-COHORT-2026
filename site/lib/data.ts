@@ -2,8 +2,29 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Define base paths relative to the 'site' directory
-const BASE_DIR = path.join(process.cwd(), '..');
+// Define base paths logic to work both locally and in Vercel
+const getBaseDir = () => {
+    // Check if running in Vercel (where root might be the repo root or strict site root)
+    // Local dev: site is in subfolder, data is in parent
+    // Vercel: if root is set to site, data might be inaccessible unless monorepo setup
+    // But user said they uploaded whole repo and changed root, so data should be in parent.
+    
+    // Attempt 1: Validating against a known directory (e.g., js-labs)
+    const potentialPaths = [
+        path.join(process.cwd(), '..'), // Local dev structure: site/.. -> repo root
+        path.join(process.cwd()),       // Fallback: maybe running from repo root
+        path.join(process.cwd(), 'data') // Hypothetical data folder
+    ];
+
+    for (const p of potentialPaths) {
+        if (fs.existsSync(path.join(p, 'js-labs'))) {
+            return p;
+        }
+    }
+    return path.join(process.cwd(), '..'); // Default fallback
+};
+
+const BASE_DIR = getBaseDir();
 const ASSIGNMENTS_DIR = path.join(BASE_DIR, 'assignment');
 const LABS_DIR = path.join(BASE_DIR, 'js-labs');
 const BLOGS_DIR = path.join(BASE_DIR, 'blogs');
