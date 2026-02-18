@@ -52,9 +52,14 @@ export interface LabCategory {
 }
 
 export interface Blog {
-  title: string;
-  description: string;
-  link: string;
+    id: number;
+    title: string;
+    description: string;
+    url: string;
+    cover_image: string | null;
+    published_at: string;
+    tag_list: string[];
+    reading_time_minutes: number;
 }
 
 export interface ClassNote {
@@ -74,6 +79,33 @@ const getFiles = (source: string) =>
   fs.readdirSync(source, { withFileTypes: true })
     .filter(dirent => !dirent.isDirectory())
     .map(dirent => dirent.name);
+
+export async function getBlogs(): Promise<Blog[]> {
+    try {
+        const apiKey = process.env.DEVTO_API;
+        if (!apiKey) {
+            console.warn("DEVTO_API key is missing in .env");
+            return [];
+        }
+
+        const response = await fetch('https://dev.to/api/articles/me/published', {
+            headers: {
+                'api-key': apiKey
+            },
+            next: { revalidate: 3600 } // Revalidate every hour
+        });
+
+        if (!response.ok) {
+            throw new Error(`Dev.to API error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data as Blog[];
+    } catch (error) {
+        console.error("Error fetching blogs from Dev.to:", error);
+        return [];
+    }
+}
 
 export async function getAssignments(): Promise<Assignment[]> {
   try {
@@ -133,77 +165,6 @@ export async function getAssignments(): Promise<Assignment[]> {
   }
 }
 
-export async function getLabs(): Promise<LabCategory[]> {
-  try {
-    if (!fs.existsSync(LABS_DIR)) return [];
-
-    const categories = getDirectories(LABS_DIR);
-    const labs: LabCategory[] = [];
-
-    for (const category of categories) {
-      const categoryPath = path.join(LABS_DIR, category, 'src'); // Assuming src folder exists based on previous `ls`
-      // If src doesn't exist, check root of category
-      const targetPath = fs.existsSync(categoryPath) ? categoryPath : path.join(LABS_DIR, category);
-      
-      if (fs.existsSync(targetPath)) {
-         const files = getFiles(targetPath).filter(f => f.endsWith('.js'));
-         if (files.length > 0) {
-             labs.push({
-                 name: category,
-                 files
-             });
-         }
-      }
-    }
-    return labs;
-  } catch (error) {
-    console.error("Error fetching labs:", error);
-    return [];
-  }
-}
-
-export async function getLabContent(category: string, filename: string): Promise<string> {
-    try {
-        const srcPath = path.join(LABS_DIR, category, 'src', filename);
-        const rootPath = path.join(LABS_DIR, category, filename);
-        
-        let content = '';
-        if (fs.existsSync(srcPath)) content = fs.readFileSync(srcPath, 'utf-8');
-        else if (fs.existsSync(rootPath)) content = fs.readFileSync(rootPath, 'utf-8');
-        
-        return content;
-    } catch (error) {
-        return '// Error reading file';
-    }
-}
-
-export async function getBlogs(): Promise<Blog[]> {
-  try {
-    const readmePath = path.join(BLOGS_DIR, 'README.md');
-    if (!fs.existsSync(readmePath)) return [];
-
-    const content = fs.readFileSync(readmePath, 'utf-8');
-    const blogs: Blog[] = [];
-
-    // Regex to parse markdown table rows: | Title | Description | [Link](url) |
-    const regex = /\|\s*\*\*([^*]+)\*\*\s*\|\s*([^|]+)\s*\|\s*\[.*?\]\((https?:\/\/[^\)]+)\)\s*\|/g;
-    
-    let match;
-    while ((match = regex.exec(content)) !== null) {
-      blogs.push({
-        title: match[1].trim(),
-        description: match[2].trim(),
-        link: match[3].trim()
-      });
-    }
-
-    return blogs;
-  } catch (error) {
-     console.error("Error fetching blogs:", error);
-     return [];
-  }
-}
-
 export async function getClassNotes(): Promise<ClassNote[]> {
   try {
     if (!fs.existsSync(CLASS_DIR)) return [];
@@ -246,5 +207,70 @@ export async function getClassNote(slug: string): Promise<ClassNote | null> {
         };
     } catch (error) {
         return null;
+    }
+}
+export async function getLabs(): Promise<LabCategory[]> {
+    try {
+        if (!fs.existsSync(LABS_DIR)) return [];
+
+        const categories = getDirectories(LABS_DIR);
+        const labs: LabCategory[] = [];
+
+        for (const category of categories) {
+            const categoryPath = path.join(LABS_DIR, category);
+            const srcPath = path.join(categoryPath, 'src');
+            
+            let files: string[] = [];
+            
+            // Check if src directory exists
+            if (fs.existsSync(srcPath) && fs.statSync(srcPath).isDirectory()) {
+                files = getFiles(srcPath);
+            } else {
+                // Fallback to category root
+                files = getFiles(categoryPath);
+            }
+
+            labs.push({
+                name: category,
+                files: files
+            });
+        }
+
+        return labs;
+    } catch (error) {
+        console.error("Error fetching labs:", error);
+        return [];
+    }
+}
+
+export async function getLabContent(category: string, filename: string): Promise<string> {
+    try {
+        // Try src folder first
+        let filePath = path.join(LABS_DIR, category, 'src', filename);
+        
+        if (!fs.existsSync(filePath)) {
+            // Fallback to category root
+            filePath = path.join(LABS_DIR, category, filename);
+        }
+
+        // Security check to prevent directory traversal
+        // Resolve paths to ensure we are comparing absolute paths if needed, 
+        // but simple string check usually works if path.join handles dots.
+        // Better:
+        const resolvedPath = path.resolve(filePath);
+        const resolvedLabsDir = path.resolve(LABS_DIR);
+
+        if (!resolvedPath.startsWith(resolvedLabsDir)) {
+            return "// Error: Invalid file path";
+        }
+
+        if (!fs.existsSync(filePath)) {
+            return "// Error: File not found";
+        }
+
+        return fs.readFileSync(filePath, 'utf-8');
+    } catch (error) {
+        console.error("Error reading lab file:", error);
+        return "// Error: Failed to read file";
     }
 }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { ArrowRight, Code, BookOpen, Layers, GraduationCap, Terminal, Database } from "lucide-react";
+import { Code, Layers, Terminal, Database } from "lucide-react";
 
 export default function Home() {
   return (
@@ -47,109 +46,81 @@ export default function Home() {
         </section>
 
         <section className="w-full max-w-6xl px-4 pt-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Learning Path</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* Assignments Card */}
-            <Link href="/assignments" className="group lg:col-span-2">
-              <Card className="h-full transition-all hover:shadow-xl hover:border-primary/50 relative overflow-hidden bg-card/50 backdrop-blur-sm border-white/10">
-                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                   <Layers className="h-64 w-64" />
-                </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-3xl">
-                    <Layers className="h-8 w-8 text-primary" />
-                    <span>Assignments</span>
-                  </CardTitle>
-                  <CardDescription className="text-lg">
-                    Production-ready projects and UI clones.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6 text-lg">
-                    Explore a diverse range of projects including landing pages, dashboards, and interactive applications.
-                    Built with modern best practices and attention to detail.
-                  </p>
-                  <span className="text-primary font-medium flex items-center group-hover:translate-x-1 transition-transform">
-                    Allow me to show you <ArrowRight className="ml-2 h-4 w-4" />
+          <div className="mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg">
+                <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+                  <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#006FEE33] text-[#005bc4] dark:text-[#66aaf9]">
+                    <span className="font-montserrat text-lg">JS Labs</span>
                   </span>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* Labs Card */}
-            <Link href="/labs" className="group">
-              <Card className="h-full transition-all hover:shadow-xl hover:border-primary/50 relative overflow-hidden bg-card/50 backdrop-blur-sm border-white/10">
-                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                   <Code className="h-32 w-32" />
                 </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-2xl">
-                    <Code className="h-6 w-6 text-primary" />
-                    <span>JS Labs</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Mastering JavaScript core concepts through hands-on coding challenges and logic building.
-                  </p>
-                  <span className="text-primary font-medium flex items-center group-hover:translate-x-1 transition-transform">
-                    View Code <ArrowRight className="ml-2 h-4 w-4" />
-                  </span>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* Blogs Card */}
-            <Link href="/blogs" className="group">
-              <Card className="h-full transition-all hover:shadow-xl hover:border-primary/50 relative overflow-hidden bg-card/50 backdrop-blur-sm border-white/10">
-                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                   <BookOpen className="h-32 w-32" />
+                <div data-slot="card-content" className="px-6 flex-1">
+                  <p className="text-lg font-medium">Mastering JavaScript core concepts through hands-on coding challenges and logic building.</p>
                 </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-2xl">
-                    <BookOpen className="h-6 w-6 text-primary" />
-                    <span>Blogs</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Documenting technical insights and deep dives into web technologies.
-                  </p>
-                   <span className="text-primary font-medium flex items-center group-hover:translate-x-1 transition-transform">
-                    Read Articles <ArrowRight className="ml-2 h-4 w-4" />
-                  </span>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* Class Notes Card */}
-             <Link href="/class-notes" className="group lg:col-span-2">
-              <Card className="h-full transition-all hover:shadow-xl hover:border-primary/50 relative overflow-hidden bg-card/50 backdrop-blur-sm border-white/10">
-                 <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                   <GraduationCap className="h-64 w-64" />
+                <div data-slot="card-footer" className="flex items-center px-6 [.border-t]:pt-6 pt-0">
+                  <Link href="/labs" className="font-one flex items-center text-xs font-medium text-muted-foreground transition-all duration-300 hover:gap-0.5 hover:text-primary dark:hover:text-primary">
+                    View Code 
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" aria-hidden="true" className="size-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M5 10a.75.75 0 0 1 .75-.75h6.638L10.23 7.29a.75.75 0 1 1 1.04-1.08l3.5 3.25a.75.75 0 0 1 0 1.08l-3.5 3.25a.75.75 0 1 1-1.04-1.08l2.158-1.96H5.75A.75.75 0 0 1 5 10Z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
                 </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-3xl">
-                    <GraduationCap className="h-8 w-8 text-primary" />
-                    <span>Class Notes</span>
-                  </CardTitle>
-                   <CardDescription className="text-lg">
-                    Detailed notes from every live session.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6 text-lg">
-                    Comprehensive documentation of concepts covered in classes, including code snippets, diagrams, and explanations. 
-                    A personal knowledge base for continuous revision.
-                  </p>
-                   <span className="text-primary font-medium flex items-center group-hover:translate-x-1 transition-transform">
-                    Start Learning <ArrowRight className="ml-2 h-4 w-4" />
+              </div>
+              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-tr-lg">
+                <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+                  <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#7828c833] dark:bg-[#9353d333] text-[#6020a0] dark:text-[#ae7ede]">
+                    <span className="font-montserrat text-lg">Assignments</span>
                   </span>
-                </CardContent>
-              </Card>
-            </Link>
-
+                </div>
+                <div data-slot="card-content" className="px-6 flex-1">
+                  <p className="text-lg font-medium">Production-ready projects and UI clones built with modern best practices.</p>
+                </div>
+                <div data-slot="card-footer" className="flex items-center px-6 [.border-t]:pt-6 pt-0">
+                  <Link href="/assignments" className="font-one flex items-center text-xs font-medium text-muted-foreground transition-all duration-300 hover:gap-0.5 hover:text-primary dark:hover:text-primary">
+                    Explore Work 
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" aria-hidden="true" className="size-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M5 10a.75.75 0 0 1 .75-.75h6.638L10.23 7.29a.75.75 0 1 1 1.04-1.08l3.5 3.25a.75.75 0 0 1 0 1.08l-3.5 3.25a.75.75 0 1 1-1.04-1.08l2.158-1.96H5.75A.75.75 0 0 1 5 10Z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-bl-lg">
+                <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+                  <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#f5a52433] text-[#c4841d] dark:text-[#f9c97c]">
+                    <span className="font-montserrat text-lg">Class Notes</span>
+                  </span>
+                </div>
+                <div data-slot="card-content" className="px-6 flex-1">
+                  <p className="text-lg font-medium">Detailed notes from every live session to help you revise concepts.</p>
+                </div>
+                <div data-slot="card-footer" className="flex items-center px-6 [.border-t]:pt-6 pt-0">
+                  <Link href="/class-notes" className="font-one flex items-center text-xs font-medium text-muted-foreground transition-all duration-300 hover:gap-0.5 hover:text-primary dark:hover:text-primary">
+                    Start learning 
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" aria-hidden="true" className="size-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M5 10a.75.75 0 0 1 .75-.75h6.638L10.23 7.29a.75.75 0 1 1 1.04-1.08l3.5 3.25a.75.75 0 0 1 0 1.08l-3.5 3.25a.75.75 0 1 1-1.04-1.08l2.158-1.96H5.75A.75.75 0 0 1 5 10Z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-b-lg md:rounded-bl-none md:rounded-br-lg">
+                <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
+                  <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#7828c833] dark:bg-[#9353d333] text-[#6020a0] dark:text-[#ae7ede]">
+                    <span className="font-montserrat text-lg">Blogs</span>
+                  </span>
+                </div>
+                <div data-slot="card-content" className="px-6 flex-1">
+                  <p className="text-lg font-medium">Documenting technical insights and deep dives into web technologies.</p>
+                </div>
+                <div data-slot="card-footer" className="flex items-center px-6 [.border-t]:pt-6 pt-0">
+                  <Link href="/blogs" className="font-one flex items-center text-xs font-medium text-muted-foreground transition-all duration-300 hover:gap-0.5 hover:text-primary dark:hover:text-primary">
+                    Read Articles 
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20" aria-hidden="true" className="size-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M5 10a.75.75 0 0 1 .75-.75h6.638L10.23 7.29a.75.75 0 1 1 1.04-1.08l3.5 3.25a.75.75 0 0 1 0 1.08l-3.5 3.25a.75.75 0 1 1-1.04-1.08l2.158-1.96H5.75A.75.75 0 0 1 5 10Z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         

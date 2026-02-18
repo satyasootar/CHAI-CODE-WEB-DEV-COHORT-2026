@@ -1,7 +1,7 @@
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-white/10 py-6 md:py-8 bg-background/50 backdrop-blur-sm">
+    <footer className="w-full border-t border-white/10 py-6 md:py-8 bg-background/50 backdrop-blur-sm mt-30">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 md:h-16 md:flex-row">
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by{" "}
