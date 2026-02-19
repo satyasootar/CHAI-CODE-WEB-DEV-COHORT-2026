@@ -24,6 +24,7 @@ export function Navbar() {
     { href: "/labs", label: "Labs" },
     { href: "/blogs", label: "Blogs" },
     { href: "/class-notes", label: "Class Notes" },
+    { href: "/learning-in-public", label: "Learning in Public" },
   ];
 
 
