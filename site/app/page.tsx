@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Code, Layers, Terminal, Database } from "lucide-react";
+import { Code, Layers, Terminal, Database, ArrowRight } from "lucide-react";
 import { Instructors } from "@/components/Instructors";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { FadeIn, StaggerContainer, FadeInItem } from "@/components/ui/fade-in";
-import { TweetGrid } from "@/components/TweetGrid";
+import { ClientTweetCard } from "@/components/ui/client-tweet-card";
 import { tweetIds } from "@/lib/tweets";
 
 export default function Home() {
@@ -141,15 +141,28 @@ export default function Home() {
              </p>
           </div>
           
-          <div className="w-full">
-            <TweetGrid tweetIds={[...tweetIds].sort((a, b) => b.localeCompare(a)).slice(0, 3)} />
+          <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[...tweetIds].sort((a, b) => b.localeCompare(a)).slice(0, 5).map((id) => (
+              <FadeInItem key={id} className="h-full">
+                <ClientTweetCard id={id} className="h-full w-full" />
+              </FadeInItem>
+            ))}
+            
+            <FadeInItem className="h-full min-h-[300px]">
+              <Link 
+                href="/learning-in-public" 
+                className="group relative flex h-full w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-xl border border-border bg-card p-8 text-center transition-all hover:bg-accent/50 hover:border-primary/50"
+              >
+                  <div className="rounded-full bg-primary/10 p-4 text-primary group-hover:bg-primary/20 transition-colors group-hover:scale-110 duration-300">
+                     <ArrowRight className="size-8" />
+                  </div>
+                   <div className="space-y-2">
+                     <h3 className="text-2xl font-bold">View All Updates</h3>
+                     <p className="text-muted-foreground">Follow my daily progress and insights.</p>
+                   </div>
+              </Link>
+            </FadeInItem>
           </div>
-
-          <Button asChild variant="outline" size="lg" className="mt-8 rounded-full px-8">
-            <Link href="/learning-in-public">
-              View All Updates
-            </Link>
-          </Button>
         </FadeIn>
       </section>
       </div>
