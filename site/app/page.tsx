@@ -3,12 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Code, Layers, Terminal, Database } from "lucide-react";
 import { Instructors } from "@/components/Instructors";
 import { AuroraText } from "@/components/ui/aurora-text";
+import { FadeIn, StaggerContainer, FadeInItem } from "@/components/ui/fade-in";
+import { TweetGrid } from "@/components/TweetGrid";
+import { tweetIds } from "@/lib/tweets";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
       <div className="flex flex-col items-center justify-center space-y-12 pt-20 pb-16">
-        <section className="flex flex-col items-center space-y-6 text-center max-w-6xl px-4">
+        <FadeIn direction="up" duration={0.8} className="flex flex-col items-center space-y-6 text-center max-w-6xl px-4">
           <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
             <span>🚀 Full Stack Journey</span>
           </div>
@@ -36,20 +39,22 @@ export default function Home() {
               <Link href="/assignments">Explore Work</Link>
             </Button>
             <Button variant="outline" size="lg" className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs h-10 px-6 has-[>svg]:px-4 cursor-pointer rounded-none rounded-tl-lg rounded-br-lg border bg-transparent text-primary hover:bg-neutral-100 dark:hover:bg-black/90" asChild>
-              <Link href="https://github.com/satyasootar" target="_blank">
+              <Link href="https://github.com/satyasootar/CHAI-CODE-WEB-DEV-COHORT-2026" target="_blank">
                 View GitHub
               </Link>
             </Button>
           </div>
-        </section>
+        </FadeIn>
 
         {/* Instructors Section */}
-        <Instructors />
+        <FadeIn delay={0.2} duration={0.8}>
+           <Instructors />
+        </FadeIn>
 
         <section className="w-full max-w-6xl px-4 pt-16">
           <div className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2" delay={0.4} staggerChildren={0.15}>
+              <FadeInItem data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg">
                 <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
                   <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#006FEE33] text-[#005bc4] dark:text-[#66aaf9]">
                     <span className="font-montserrat text-lg">JS Labs</span>
@@ -66,8 +71,8 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
-              </div>
-              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-tr-lg">
+              </FadeInItem>
+              <FadeInItem data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-tr-lg">
                 <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
                   <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#7828c833] dark:bg-[#9353d333] text-[#6020a0] dark:text-[#ae7ede]">
                     <span className="font-montserrat text-lg">Assignments</span>
@@ -84,8 +89,8 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
-              </div>
-              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-bl-lg">
+              </FadeInItem>
+              <FadeInItem data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 md:rounded-bl-lg">
                 <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
                   <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#f5a52433] text-[#c4841d] dark:text-[#f9c97c]">
                     <span className="font-montserrat text-lg">Class Notes</span>
@@ -102,8 +107,8 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
-              </div>
-              <div data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-b-lg md:rounded-bl-none md:rounded-br-lg">
+              </FadeInItem>
+              <FadeInItem data-slot="card" className="text-card-foreground flex flex-col gap-6 shadow-sm border transition-shadow hover:shadow-sm hover:border-accent-foreground/30 bg-white/70 hover:bg-orange-50 dark:bg-black/10 dark:hover:bg-accent/20 backdrop-contrast-100 backdrop-filter backdrop-blur-2xl rounded-none px-2 py-10 md:py-12 rounded-b-lg md:rounded-bl-none md:rounded-br-lg">
                 <div data-slot="card-header" className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6">
                   <span data-slot="badge" className="inline-flex items-center justify-center border px-2 py-0.5 text-xs font-medium whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden border-transparent [a&]:hover:bg-primary/90 w-fit rounded-sm bg-[#7828c833] dark:bg-[#9353d333] text-[#6020a0] dark:text-[#ae7ede]">
                     <span className="font-montserrat text-lg">Blogs</span>
@@ -120,11 +125,33 @@ export default function Home() {
                     </svg>
                   </Link>
                 </div>
-              </div>
-            </div>
+              </FadeInItem>
+            </StaggerContainer>
           </div>
         </section>
       </div>
-    </div>
+
+      {/* Learning in Public Section */}
+      <section className="w-full max-w-6xl px-4 py-16">
+        <FadeIn delay={0.6} duration={0.8} className="flex flex-col items-center space-y-8">
+          <div className="text-center space-y-4">
+             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Learning in <span className="text-primary">Public</span></h2>
+             <p className="text-muted-foreground max-w-2xl mx-auto">
+               Sharing my progress, insights, and small wins daily on Twitter.
+             </p>
+          </div>
+          
+          <div className="w-full">
+            <TweetGrid tweetIds={tweetIds.slice(0, 3)} />
+          </div>
+
+          <Button asChild variant="outline" size="lg" className="mt-8 rounded-full px-8">
+            <Link href="/learning-in-public">
+              View All Updates
+            </Link>
+          </Button>
+        </FadeIn>
+      </section>
+      </div>
   );
 }
