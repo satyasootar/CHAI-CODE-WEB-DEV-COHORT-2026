@@ -176,10 +176,30 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
   </div>
 )
 
+// Helper to extract image URL from various card types
+const getTweetCardImage = (card: any) => {
+  if (!card?.binding_values) return null;
+  const values = card.binding_values;
+  
+  // Try common keys for large images
+  const largeImage = 
+    values.thumbnail_image_large?.image_value?.url ||
+    values.player_image_large?.image_value?.url ||
+    values.summary_photo_image_large?.image_value?.url ||
+    values.promo_image?.image_value?.url ||
+    values.thumbnail_image?.image_value?.url ||
+    values.event_thumbnail?.image_value?.url;
+    
+  return largeImage;
+};
+
 export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
-  if (!tweet.video && !tweet.photos) return null
+  const cardImage = getTweetCardImage((tweet as any).card);
+
+  if (!tweet.video && !tweet.photos && !cardImage) return null;
+
   return (
-    <div className="flex flex-1 items-center justify-center">
+    <div className="flex flex-1 items-center justify-center mt-2">
       {tweet.video && (
         <video
           poster={tweet.video.poster}
@@ -187,15 +207,14 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
           loop
           muted
           playsInline
-          className="rounded-xl border shadow-sm"
+          className="rounded-xl border shadow-sm w-full"
         >
           <source src={tweet.video.variants[0].src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}
       {tweet.photos && (
-        <div className="relative flex transform-gpu snap-x snap-mandatory gap-4 overflow-x-auto">
-          <div className="shrink-0 snap-center sm:w-2" />
+        <div className="relative flex transform-gpu snap-x snap-mandatory gap-4 overflow-x-auto w-full">
           {tweet.photos.map((photo) => (
             <img
               key={photo.url}
@@ -204,25 +223,31 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
               height={photo.height}
               title={"Photo by " + tweet.user.name}
               alt={tweet.text}
-              className="h-64 w-5/6 shrink-0 snap-center snap-always rounded-xl border object-cover shadow-sm"
+              className="h-64 w-full shrink-0 snap-center snap-always rounded-xl border object-cover shadow-sm"
             />
           ))}
-          <div className="shrink-0 snap-center sm:w-2" />
         </div>
       )}
-      {!tweet.video &&
-        !tweet.photos &&
-        // @ts-expect-error package doesn't have type definitions
-        tweet?.card?.binding_values?.thumbnail_image_large?.image_value.url && (
-          <img
-            src={
-              // @ts-expect-error package doesn't have type definitions
-              tweet.card.binding_values.thumbnail_image_large.image_value.url
-            }
-            className="h-64 rounded-xl border object-cover shadow-sm"
-            alt={tweet.text}
+      {!tweet.video && !tweet.photos && cardImage && (
+        <a 
+          href={(tweet as any).card?.url || (tweet as any).urls?.[0]?.expanded_url} // Try to link to the card URL 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block w-full group relative"
+        >
+           <img
+            src={cardImage}
+            className="h-64 w-full rounded-xl border object-cover shadow-sm transition-opacity group-hover:opacity-90"
+            alt="Link preview"
           />
-        )}
+           {/* Optional: Add domain badge if available */}
+           {(tweet as any).card?.binding_values?.vanity_url?.string_value && (
+               <div className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded backdrop-blur-md">
+                   {(tweet as any).card.binding_values.vanity_url.string_value}
+               </div>
+           )}
+        </a>
+      )}
     </div>
   )
 }
