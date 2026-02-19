@@ -25,7 +25,7 @@ export default async function ClassNotePage(props: PageProps) {
   }
 
   return (
-    <div className="container max-w-4xl mx-auto space-y-8">
+    <div className="container max-w-4xl mx-auto space-y-8 mt-30">
       <div className="flex flex-col space-y-4">
         <Link href="/class-notes" className="text-muted-foreground hover:text-primary flex items-center text-sm w-fit">
             <ChevronLeft className="h-4 w-4 mr-1" /> Back to Notes

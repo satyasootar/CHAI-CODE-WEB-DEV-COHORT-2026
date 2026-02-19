@@ -86,7 +86,7 @@ export function Instructors() {
   }, []);
 
   return (
-    <div className="mt-16 mb-8 flex w-full flex-col justify-center sm:mt-36 sm:items-center">
+    <div className="mt-16 mb-8 flex w-[900px] flex-col justify-center sm:mt-36 sm:items-center">
       <h2 className="text-[28px] font-light text-neutral-900 sm:text-center sm:text-4xl md:text-5xl dark:text-neutral-100">
         Meet my <span className="font-montserrat font-medium tracking-tight text-yellow-800 capitalize dark:text-orange-100">Instructors</span>
       </h2>
@@ -94,7 +94,7 @@ export function Instructors() {
         Learning from <span className="font-medium">Industry Veterans</span> and <span className="font-medium">Guest Experts</span> who bring real-world experience<span className="max-sm:hidden"> to the classroom. Our instructors are passionate about teaching and committed to your success</span>.
       </p>
       
-      <div className="flex w-full max-w-4xl flex-col md:flex-row md:gap-8 lg:gap-12">
+      <div className="flex w-full max-w-6xl flex-col md:flex-row md:gap-8 lg:gap-12">
         {/* Left Side: Desktop Controls & Info */}
         <div className="hidden flex-col justify-end pt-4 pb-8 md:flex md:flex-1">
           {/* Avatar Toggles */}

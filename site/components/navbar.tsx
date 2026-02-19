@@ -23,7 +23,7 @@ export function Navbar() {
           : "bg-transparent border-transparent"
       }`}
     >
-      <div className="container mx-auto flex h-16 py-10 items-center px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl mx-auto flex h-16 py-10 items-center px-4 sm:px-6 lg:px-8">
         <Link href="/" className="mr-8 flex items-center space-x-2">
               <div className="flex flex-row items-end justify-center pt-2">
              <div className="w-10">

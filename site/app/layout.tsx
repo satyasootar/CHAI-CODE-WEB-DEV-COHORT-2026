@@ -40,15 +40,15 @@ export default function RootLayout({
       >
         <Navbar />
         {/* Global Background */}
-        <div className="absolute inset-0 -z-50 h-full w-full bg-background">
+        <div className="fixed inset-0 -z-50 h-full w-full bg-background pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,125,12,0.15),rgba(255,255,255,0))] opacity-20" />
           <img
-            src="/background.svg"
+            src="/background-large.svg"
             alt="Background"
             className="absolute top-0 left-1/2 h-full w-full -translate-x-1/2 object-cover opacity-60 dark:opacity-100"
           />
         </div>
-        <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8">
+        <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {children}
         </main>
         <Footer />

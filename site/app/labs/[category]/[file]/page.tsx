@@ -26,7 +26,7 @@ export default async function LabFilePage(props: PageProps) {
     }
 
   return (
-    <div className="space-y-6 container max-w-5xl mx-auto">
+    <div className="space-y-6 container max-w-5xl mx-auto mt-30">
       <div className="flex flex-col space-y-4">
          <Link href={`/labs/${category}`} className="text-muted-foreground hover:text-primary flex items-center text-sm">
             <ChevronLeft className="h-4 w-4 mr-1" /> Back to {category}
