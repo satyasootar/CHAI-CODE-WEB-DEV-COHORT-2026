@@ -252,6 +252,34 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
   )
 }
 
+export const TweetInfo = ({ tweet }: { tweet: EnrichedTweet }) => {
+  const date = new Date(tweet.created_at);
+  const formattedTime = date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+  const formattedDate = date.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
+  
+  return (
+    <div className="flex items-center justify-between text-muted-foreground text-sm mt-2 border-t pt-2 border-border/50">
+      <a href={tweet.url} target="_blank" rel="noreferrer" className="hover:underline">
+        {formattedTime} · {formattedDate}
+      </a>
+
+      {(tweet as any).views_count ? (
+         <span>
+           <span className="font-bold text-foreground">
+             {new Intl.NumberFormat('en-US', { notation: "compact" }).format((tweet as any).views_count)}
+           </span> Views
+         </span>
+      ) : (tweet as any).public_metrics?.impression_count ? (
+        <span>
+           <span className="font-bold text-foreground">
+             {new Intl.NumberFormat('en-US', { notation: "compact" }).format((tweet as any).public_metrics.impression_count)}
+           </span> Views
+         </span>
+      ) : null}
+    </div>
+  );
+}
+
 export const MagicTweet = ({
   tweet,
   className,
@@ -272,6 +300,7 @@ export const MagicTweet = ({
       <TweetHeader tweet={enrichedTweet} />
       <TweetBody tweet={enrichedTweet} />
       <TweetMedia tweet={enrichedTweet} />
+      <TweetInfo tweet={enrichedTweet} />
     </div>
   )
 }

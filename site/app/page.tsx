@@ -142,7 +142,7 @@ export default function Home() {
           </div>
           
           <div className="w-full">
-            <TweetGrid tweetIds={tweetIds.slice(0, 3)} />
+            <TweetGrid tweetIds={[...tweetIds].sort((a, b) => b.localeCompare(a)).slice(0, 3)} />
           </div>
 
           <Button asChild variant="outline" size="lg" className="mt-8 rounded-full px-8">
