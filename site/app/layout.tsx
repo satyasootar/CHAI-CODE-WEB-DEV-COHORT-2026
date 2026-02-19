@@ -26,6 +26,9 @@ const corinthia = Corinthia({
 export const metadata: Metadata = {
   title: "Web Dev Cohort Learnings",
   description: "A showcase of assignments, labs, and blogs from the Web Dev Cohort.",
+  icons: {
+    icon: "/assets/chai-cup.svg",
+  },
 };
 
 export default function RootLayout({
