@@ -310,7 +310,7 @@ export const MagicTweet = ({
       <TweetHeader tweet={enrichedTweet} />
       <TweetBody tweet={enrichedTweet} />
       <TweetMedia tweet={enrichedTweet} />
-      {enrichedTweet.quoted_tweet && <QuotedTweet tweet={enrichedTweet.quoted_tweet} />}
+      {enrichedTweet.quoted_tweet && <QuotedTweet tweet={enrichedTweet.quoted_tweet as unknown as EnrichedTweet} />}
       <TweetInfo tweet={enrichedTweet} />
     </div>
   )
