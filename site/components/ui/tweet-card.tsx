@@ -280,6 +280,16 @@ export const TweetInfo = ({ tweet }: { tweet: EnrichedTweet }) => {
   );
 }
 
+export const QuotedTweet = ({ tweet }: { tweet: EnrichedTweet }) => {
+  return (
+    <div className="border border-border/50 rounded-lg p-3 mt-4 hover:bg-muted/50 transition-colors cursor-pointer">
+      <TweetHeader tweet={tweet} />
+      <TweetBody tweet={tweet} />
+      <TweetMedia tweet={tweet} />
+    </div>
+  )
+}
+
 export const MagicTweet = ({
   tweet,
   className,
@@ -300,6 +310,7 @@ export const MagicTweet = ({
       <TweetHeader tweet={enrichedTweet} />
       <TweetBody tweet={enrichedTweet} />
       <TweetMedia tweet={enrichedTweet} />
+      {enrichedTweet.quoted_tweet && <QuotedTweet tweet={enrichedTweet.quoted_tweet} />}
       <TweetInfo tweet={enrichedTweet} />
     </div>
   )
