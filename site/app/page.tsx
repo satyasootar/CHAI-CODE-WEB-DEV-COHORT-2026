@@ -135,7 +135,9 @@ export default function Home() {
       <section className="w-full max-w-6xl px-4 py-16">
         <FadeIn delay={0.6} duration={0.8} className="flex flex-col items-center space-y-8">
           <div className="text-center space-y-4">
-             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Learning in <span className="text-primary">Public</span></h2>
+             <h2 className="text-[28px] font-light text-neutral-900 sm:text-center sm:text-4xl md:text-5xl dark:text-neutral-100">
+               Learning in <span className="font-montserrat font-medium tracking-tight text-yellow-800 capitalize dark:text-orange-100">Public</span>
+             </h2>
              <p className="text-muted-foreground max-w-2xl mx-auto">
                Sharing my progress, insights, and small wins daily on Twitter.
              </p>

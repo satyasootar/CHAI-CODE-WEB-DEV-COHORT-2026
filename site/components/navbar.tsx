@@ -32,9 +32,9 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 z-50 w-full transition-all duration-300 border-white/10 bg-background/50 backdrop-blur-md supports-[backdrop-filter]bg-background/60 bg-transparent border-transparent"
+        className="fixed top-0 z-50 w-full transition-all duration-300 border-white/10 bg-background/50 backdrop-blur-md supports-[backdrop-filter]bg-background/210 bg-transparent border-transparent"
       >
-        <div className="w-full max-w-6xl mx-auto flex h-16 py-10 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full max-w-6xl mx-auto flex h-16 py-10 items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center space-x-2 z-50" onClick={() => setIsOpen(false)}>
             <div className="flex flex-row items-end justify-center pt-2">
               <div className="w-10">
@@ -109,40 +109,39 @@ export function Navbar() {
               />
             </div>
           </button>
+
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute top-20 right-4 sm:right-6 lg:right-8 w-48 bg-background border border-white/10 rounded-xl shadow-xl overflow-hidden z-40 backdrop-blur-md"
+              >
+                <nav className="flex flex-col py-2">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 + 0.1 }}
+                    >
+                      <Link
+                        href={link.href}
+                        className="block px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-white/5 transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
-
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-20 right-4 sm:right-6 lg:right-8 w-48 bg-background border border-white/10 rounded-xl shadow-xl overflow-hidden z-40 backdrop-blur-md fixed"
-          >
-            <nav className="flex flex-col py-2">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 + 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="block px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-white/5 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
