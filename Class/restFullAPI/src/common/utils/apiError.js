@@ -13,6 +13,12 @@ class ApiError extends Error{
     static Unauthorised(message = "Unauthorised"){
         return new ApiError(401, message)
     }
+
+    static conflict(message = "Conflict - Data Already exist"){
+        return new ApiError(409, message)
+    }
+
+    
 }
 
 export default ApiError
