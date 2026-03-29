@@ -25,3 +25,7 @@ const register = async({name, email, password, role}) => {
     return userObj
 }
 
+const login = async ({email, password}) => {
+    const existingUser = await user.findOne({email}).select("+password")
+    if (!existingUser) throw ApiError.Unauthorised("Invalid email or password")
+}
