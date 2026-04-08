@@ -2,13 +2,13 @@ services:
   postgresdb:
     image: postgres:17
     ports:
-      - 5432:5432
-    environment: 
-      POSTGRES_USER: postgress
-      POSTGRES_PASSWORD: postgress
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: chaicode
     volumes:
-      - "postgres_data:/var/lib/postgresql/data"
+      - 'postgres_data:/var/lib/postgresql/data'
 
 volumes:
   postgres_data:
